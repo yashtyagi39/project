@@ -1,0 +1,185 @@
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<style>
+  body {
+     background-color:black;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  }
+  .items{
+      font-size: 20px;
+      font-family: Lobster,monospace;
+     width: 30px;
+     margin:10px 10px 10px 10px;
+     padding: 20px 20px 20px 20px;
+     
+     z-index: 2;
+      border-radius: 19%;
+            box-shadow: 2px 10px 20px rgba(255,255,255,0.6), 5px 6px 6px rgba(255,255,255,0.6);
+  
+  }
+  #container{
+    width: 450px;
+   // margin: 30px 60px 60px 150px ;
+    //padding:10px 10px 10px 7px ;
+     position: relative;
+top:0px;
+right:50px;
+left:480px;
+bottom:350px;
+    background: blue;
+    border-radius: 8%;
+      z-index: 1;
+      box-shadow: 2px 10px 20px rgba(0,255,0,0.6), 5px 6px 6px rgba(0,0,0,0.6);
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+     grid-template-rows: repeat(5,1fr);
+     grid-gap: 8px 5px;
+  }
+  .dec{
+    background:LightSkyBlue;
+  }
+  .conf1{
+font-family: Lobster,monospace;
+    position: relative;
+    top: 10px;
+    left: 50%;
+  	 border-radius: 5px;
+    color: white;
+    background-color: red;
+}
+ button:hover {
+    animation-name: background-color;
+    animation-duration: 500ms;
+   
+   animation-fill-mode: forwards;
+
+  }
+  @keyframes background-color {
+    100% {
+      background-color: #4791d0;
+   
+    }
+  }
+
+  .conf2{
+    font-family: Lobster,monospace;
+    position: relative;
+    top: 30px;
+    left: 50%;
+border-radius: 5px;
+    color: white;
+    background-color: red;
+  }
+  
+  input{
+    width: 50px;
+  }
+  fieldset{
+    border-radius: 5px;
+text-align: center;
+  }
+  #score{    width:90px;
+    color: red;
+    font-family: Lobster,monospace;
+    border-color: red;
+    border-radius: 5px;
+    position : relative;
+    top:0px;
+bottom: 20px;
+left:150px;
+
+  }
+ #op{
+    color: red;
+    width:100px;
+   height: 10px;
+  position: relative;
+   left:48%;
+   top: 10px;
+font-family: Lobster,monospace;
+  }
+  
+</style>
+<!DOCTYPE html>
+  <head>
+    <title>count 1to 50</title>
+    <script type="text/javascript">
+        var ID=0;
+        var seconds=0;
+        var arr=["yash","koshal","harsh"];
+	document.getElementById("isOut");
+        function printMsg()
+        {
+          document.getElementById("op").innerHTML=seconds+" seconds";
+          seconds++; 
+        }
+        function start()
+        {
+          ID=window.setInterval(printMsg,1000);
+        }
+        function stop()
+        {
+          window.clearInterval(ID);
+          console.log(seconds-1);
+   localStorage.setItem(arr[0],seconds-1);
+ const key=localStorage.key(arr[0]);
+            console.log(key);
+          const value=localStorage.getItem(key);
+console.log(value);
+          isOut.innerHTML+=value ;
+       
+           
+        }
+      </script>
+  </head>
+  <body>
+   
+    <div>
+      <button onclick="start()" class="conf1">START</button>
+    </div>
+<h2 id="op">0 seconds</h2>
+<div id="score">
+<fieldset>
+<legend>YOUR SCORE</legend>
+<div id="isOut"></div>
+</fieldset>
+</div>
+    
+
+
+    <div id="container">
+      <div class="items dec">1</div>
+      <div class="items dec">2</div>
+      <div class="items dec">3</div>
+      <div class="items dec">4</div>
+      <div class="items dec">5</div> 
+      <div class="items dec">6</div>
+      <div class="items dec">7</div>
+      <div class="items dec">8</div>
+      <div class="items dec">9</div>
+      <div class="items dec">10</div>
+      <div class="items dec">11</div>
+      <div class="items dec">12</div>
+      <div class="items dec">13</div>
+      <div class="items dec">14</div>
+      <div class="items dec">15</div>
+      <div class="items dec">16</div>
+      <div class="items dec">17</div>
+      <div class="items dec">18</div>
+      <div class="items dec">19</div>
+      <div class="items dec">20</div>
+    </div>
+    <div>
+      <button onclick="stop()" class="conf2">STOP</button>
+    </div>
+ <script type="text/javascript" src="number.js"></script>
+</body>
+</html>
+
+
+
